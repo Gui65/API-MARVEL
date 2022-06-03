@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+* {
+    padding: 0;
+    text-decoration: none;
+    margin: 0;
+    font-family: 'ubuntu', sans-serif;
+    background: -moz-linear-gradient(top, #CCCCCC, #000000);
+}
+
+.personagem img {
+    height: 324px;
+    width: 216px;
+    border-radius: 2%;
+}
+ 
+#btnVerMais{
+    color: #fff;
+    background-color: #ED1D24;
+}
