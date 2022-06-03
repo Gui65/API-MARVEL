@@ -3,7 +3,7 @@ const apiKey = 'd464c2bd5f87f0a1bcdb8a88f9e5844a';
 const md5 = '7e8325ef0350416dc89287a75983852f';
 let offset = 0;
 
-fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${md5}&limit=15&offset=${offset}`
+fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${md5}&limit=12&offset=${offset}`
 ).then((response) => {
     return response.json();
 }).then((jsonParsed) => {
@@ -13,8 +13,9 @@ fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${a
 
         const srcImage = element.thumbnail.path + '.' + element.thumbnail.extension;
         const nameHero = element.name;
+        const idHero = element.id;
 
-        createDivHero(srcImage, nameHero, divHero);
+        createDivHero(srcImage, nameHero, divHero, idHero);
     });
 
 
@@ -25,8 +26,8 @@ fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${a
 });
 
 function acrescentar() {
-    offset += 15;
-    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${md5}&limit=15&offset=${offset}`
+    offset += 12;
+    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${md5}&limit=12&offset=${offset}`
     ).then((response) => {
         return response.json();
     }).then((jsonParsed) => {
@@ -36,8 +37,9 @@ function acrescentar() {
 
             const srcImage = element.thumbnail.path + '.' + element.thumbnail.extension;
             const nameHero = element.name;
+            const idHero = element.id;
 
-            createDivHero(srcImage, nameHero, divHero);
+            createDivHero(srcImage, nameHero, divHero, idHero);
         });
 
 
@@ -48,7 +50,7 @@ function acrescentar() {
     });
 }
 
-function createDivHero(srcImage, nameHero, divToAppend) {
+function createDivHero(srcImage, nameHero, divToAppend, idHero) {
     const divPai = document.createElement('div');
     const divFilho = document.createElement('div');
     const textName = document.createElement('h5');
@@ -63,12 +65,24 @@ function createDivHero(srcImage, nameHero, divToAppend) {
     divToAppend.appendChild(divPai);
     divPai.classList.add("personagem");
     divPai.classList.add("col");
+    img.addEventListener("auxclick", detalharPersonagem(idHero))
+    divFilho.classList.add("col-12");
     divFilho.classList.add("text-center")
-    divFilho.classList.add("card")
-    img.classList.add("card-img-top")
     img.classList.add("rounded")
-    textName.classList.add("card-title")
-    
+      
 }
 
-
+function detalharPersonagem(personagem){
+    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${md5}&limit=12&offset=${offset}`
+    ).then((response) => {
+        return response.json();
+    }).then((jsonParsed) => {
+            jsonParsed.data.results.forEach(element => {
+                if(element.id === personagem){
+                    console.log(element.name);
+                }else{
+                    console.log('teste')
+                }
+            });
+    })
+}

@@ -22,17 +22,21 @@ body{
 
 .personagem{
     margin-bottom: 1%;
+      
     
 }
 .personagem img {
-    height: 324px;
-    width: 216px;
-    border-radius: 2%;
+    height: 450px;
+    width: 300px;
 }
  
+.text-center{
+    color: #fff;
+   border: 1px solid #a30207;
+}
 #btnVerMais{
     color: #fff;
-    background-color: #ED1D24;
+    background-color: #a30207;
 }
 
 footer{
