@@ -3,6 +3,7 @@ const apiKey = 'd464c2bd5f87f0a1bcdb8a88f9e5844a';
 const md5 = '7e8325ef0350416dc89287a75983852f';
 let offset = 0;
 
+//Listar Personagens
 fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${md5}&limit=12&offset=${offset}`
 ).then((response) => {
     return response.json();
@@ -65,24 +66,15 @@ function createDivHero(srcImage, nameHero, divToAppend, idHero) {
     divToAppend.appendChild(divPai);
     divPai.classList.add("personagem");
     divPai.classList.add("col");
-    img.addEventListener("auxclick", detalharPersonagem(idHero))
     divFilho.classList.add("col-12");
     divFilho.classList.add("text-center")
     img.classList.add("rounded")
-      
+    img.addEventListener("click", function () {
+        detalharPersonagem(idHero)
+    });
 }
 
-function detalharPersonagem(personagem){
-    fetch(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${apiKey}&hash=${md5}&limit=12&offset=${offset}`
-    ).then((response) => {
-        return response.json();
-    }).then((jsonParsed) => {
-            jsonParsed.data.results.forEach(element => {
-                if(element.id === personagem){
-                    console.log(element.name);
-                }else{
-                    console.log('teste')
-                }
-            });
-    })
-}
+
+
+
+  
