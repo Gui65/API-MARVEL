@@ -12,7 +12,7 @@ function detalharPersonagem(idHero){
                 const nameHero = element.name;
                 const seriesHero = element.series.items.name;
                 const storiesHero = element.stories.items.name;
-                createDivHero(srcImage, nameHero, seriesHero, storiesHero, detalharPersonagem);
+                createDivDetalhar(srcImage, nameHero, seriesHero, storiesHero, detalharPersonagem);
                 window.open('detalharPersonagem.html', 'detalharPersonagem');
             }
             
@@ -37,6 +37,8 @@ function createDivDetalhar(srcImage, nameHero, seriesHero, storiesHero,  divToAp
 
     divFilho.appendChild(img);
     divFilho.appendChild(textName);
+    divFilho.appendChild(textSeries);
+    divFilho.appendChild(textStories);
     divPai.appendChild(divFilho);
     divToAppend.appendChild(divPai);
     divPai.classList.add("col");

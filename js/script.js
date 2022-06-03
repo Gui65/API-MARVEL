@@ -72,6 +72,7 @@ function createDivHero(srcImage, nameHero, divToAppend, idHero) {
     img.addEventListener("click", function () {
         detalharPersonagem(idHero)
     });
+    
 }
 
 
