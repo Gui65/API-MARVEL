@@ -51,7 +51,7 @@ function acrescentar() {
 function createDivHero(srcImage, nameHero, divToAppend) {
     const divPai = document.createElement('div');
     const divFilho = document.createElement('div');
-    const textName = document.createElement('p');
+    const textName = document.createElement('h5');
     const img = document.createElement('img');
 
     textName.textContent = nameHero;
@@ -64,6 +64,10 @@ function createDivHero(srcImage, nameHero, divToAppend) {
     divPai.classList.add("personagem");
     divPai.classList.add("col");
     divFilho.classList.add("text-center")
+    divFilho.classList.add("card")
+    img.classList.add("card-img-top")
+    img.classList.add("rounded")
+    textName.classList.add("card-title")
     
 }
 

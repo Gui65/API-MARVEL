@@ -4,9 +4,26 @@
     text-decoration: none;
     margin: 0;
     font-family: 'ubuntu', sans-serif;
-    background: -moz-linear-gradient(top, #CCCCCC, #000000);
+    
+}
+body{
+    background-color: #000!important;
 }
 
+#cabecalho{
+    background-image: url('./img/header.jpg');
+    background-color: #000;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 2%;
+
+}
+
+.personagem{
+    margin-bottom: 1%;
+    
+}
 .personagem img {
     height: 324px;
     width: 216px;
@@ -16,4 +33,8 @@
 #btnVerMais{
     color: #fff;
     background-color: #ED1D24;
+}
+
+footer{
+    height: 50px;
 }
